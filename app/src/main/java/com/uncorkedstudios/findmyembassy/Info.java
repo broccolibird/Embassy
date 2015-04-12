@@ -8,11 +8,14 @@ public class Info {
     public String name;
     public String address;
     public String phoneNumber;
+    public double latitude, longitude;
 
-    public Info(String name, String address, String phoneNumber) {
+    public Info(String name, String address, String phoneNumber, double lat, double longitude) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.latitude = lat;
+        this.longitude = longitude;
     }
 
     public String getName() {

@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 
 
 public class MainActivity extends ActionBarActivity implements
-        MapFragment.OnFragmentInteractionListener {
+        EmbassyMapFragment.OnFragmentInteractionListener,
+        SelectFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class MainActivity extends ActionBarActivity implements
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, MapFragment.newInstance())
+                    .add(R.id.container, SelectFragment.newInstance())
                     .commit();
         }
     }
@@ -51,6 +52,13 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onOkPressed() {
+        getFragmentManager()
+                .beginTransaction().replace(R.id.container, EmbassyMapFragment.newInstance())
+                .commit();
     }
 
     /**
